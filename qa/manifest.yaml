@@ -1,0 +1,15 @@
+project: default
+source:
+  repoURL: 'https://github.com/yaislom/argo-demo.git'
+  path: application
+  targetRevision: HEAD
+  helm:
+    valueFiles:
+      - ../qa/values.yaml
+destination:
+  server: 'https://kubernetes.default.svc'
+  namespace: qa-artemis
+syncPolicy:
+  automated: {}
+  syncOptions:
+    - CreateNamespace=true
